@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Johns Hopkins University Module 4 Solution</title>
+</head>
+<body>
+  <center>
+    <h1>Johns Hopkins University Module 4 Solution</h1>
+    <p>By: Yuri Egipto | Philippines</p>
+
+    <form id="nameForm">
+      <label for="nameInput">Enter a name:</label>
+      <input type="text" id="nameInput">
+      <button type="button" onclick="addName()">Add Name</button>
+    </form>
+
+    <br><br>
+
+    <button onclick="runTask()">Run Task</button>
+
+    <div id="output"></div>
+
+    <script>
+      var names = []; // Array of names
+
+      function addName() {
+        var nameInput = document.getElementById("nameInput");
+        var name = nameInput.value.trim();
+
+        if (name !== "") {
+          names.push(name);
+          nameInput.value = ""; // Clear input field
+          alert("Name added: " + name); // Show alert with the added name
+        }
+      }
+
+      function runTask() {
+        var outputElement = document.getElementById("output");
+        outputElement.innerHTML = ""; // Clear previous output
+
+        // Loop over the array of names
+        for (var i = 0; i < names.length; i++) {
+          var name = names[i];
+
+          var paragraph = document.createElement("p");
+
+          // Check if the name starts with 'j' or 'J'
+          if (name.charAt(0) === "j" || name.charAt(0) === "J") {
+            paragraph.textContent = "Goodbye " + name;
+          } else {
+            paragraph.textContent = "Hello " + name;
+          }
+
+          outputElement.appendChild(paragraph);
+        }
+      }
+    </script>
+  </center>
+</body>
+</html>
